@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+.venv/
+venv/
+.env
+.env.*
+
+# 取得・保存データ
+*.mhtml
+*.mht
+*.har
+
+# 秘密情報・認証情報
+*credentials*.json
+*token*.json
+*secret*.json
+
+# ローカル設定
+*.local.json
