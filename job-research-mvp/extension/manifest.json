@@ -7,6 +7,7 @@
   "permissions": ["contextMenus", "activeTab", "scripting", "storage"],
   "host_permissions": ["http://127.0.0.1/*"],
   "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "求人検索ツール（希望条件の管理）" },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'none'; connect-src http://127.0.0.1:11434; base-uri 'none'; form-action 'none'"
   }

@@ -9,7 +9,8 @@
     "test:native": "node tests/native-smoke.js",
     "test:analysis": "node tests/analysis-browser.js",
     "format": "prettier --write \"extension/**/*.{js,html,css,json}\" \"tests/**/*.{js,html,css,json}\" package.json .prettierrc.json",
-    "format:check": "prettier --check \"extension/**/*.{js,html,css,json}\" \"tests/**/*.{js,html,css,json}\" package.json .prettierrc.json"
+    "format:check": "prettier --check \"extension/**/*.{js,html,css,json}\" \"tests/**/*.{js,html,css,json}\" package.json .prettierrc.json",
+    "test:preferences": "node tests/preferences-browser.js"
   },
   "devDependencies": {
     "jsdom": "^26.1.0",

@@ -1,6 +1,7 @@
 import {
   analysisInput,
   analysisSignature,
+  emptyCriteriaMessage,
   evidenceSources,
   evaluationSchema,
   validateAnalysis,
@@ -109,7 +110,7 @@ async function readChat(response, onProgress) {
 export async function analyzeLocal(input, model, fetchImpl = fetch, onProgress) {
   const startedAt = performance.now();
   if (input.version !== 2 || !input.provenance) throw new Error('分析入力を再作成してください。');
-  if (!input.criteria.length) throw new Error('比較する希望条件を1行に1条件で入力してください。');
+  if (!input.criteria.length) throw new Error(emptyCriteriaMessage(input.preferences));
   input = structuredClone(input);
   const models = await listLocalModels(fetchImpl);
   if (!models.includes(model)) throw new Error('PC上のローカルモデルを一覧から選択してください。');

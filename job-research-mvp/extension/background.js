@@ -1,13 +1,40 @@
 import { captureJob, reviseJob } from './workflow.js';
+import { openPreferences } from './open-preferences.js';
 
-async function registerMenu() {
-  await chrome.contextMenus.removeAll();
-  chrome.contextMenus.create({
-    id: 'inspect-job',
-    title: 'この求人を調べる',
-    contexts: ['page', 'selection', 'link', 'image'],
-    documentUrlPatterns: ['http://*/*', 'https://*/*'],
-  });
+let menuRegistration;
+
+function registerMenu() {
+  // Installation and startup can overlap. Share the entire remove/create operation.
+  if (!menuRegistration) {
+    menuRegistration = (async () => {
+      // Callbacks also work on the minimum supported Chrome version (116).
+      await new Promise((resolve, reject) => {
+        chrome.contextMenus.removeAll(() => {
+          const error = chrome.runtime.lastError;
+          if (error) reject(new Error(error.message));
+          else resolve();
+        });
+      });
+      await new Promise((resolve, reject) => {
+        chrome.contextMenus.create(
+          {
+            id: 'inspect-job',
+            title: 'この求人を調べる',
+            contexts: ['page', 'selection', 'link', 'image'],
+            documentUrlPatterns: ['http://*/*', 'https://*/*'],
+          },
+          () => {
+            const error = chrome.runtime.lastError;
+            if (error) reject(new Error(error.message));
+            else resolve();
+          },
+        );
+      });
+    })().finally(() => {
+      menuRegistration = undefined;
+    });
+  }
+  return menuRegistration;
 }
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -19,6 +46,11 @@ chrome.runtime.onStartup.addListener(() => {
 // 右クリックメニューから求人情報を取得する
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'inspect-job') captureJob(chrome, tab, info.pageUrl).catch(console.error);
+});
+
+// ツールバーアイコンの左クリックで希望条件の管理画面を開く（開いていれば前面に出す）
+chrome.action.onClicked.addListener(() => {
+  openPreferences(chrome).catch(console.error);
 });
 
 chrome.runtime.onMessage.addListener((message, sender, respond) => {

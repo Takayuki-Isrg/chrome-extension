@@ -89,6 +89,27 @@
             maxlength="2000"
             placeholder="例：希望：AI活用・業務改善に関わりたい。&#10;ハード：年収450万円以上&#10;除外：顧客向け案件アサイン型の仕事"
           ></textarea>
+          <p
+            id="analysis-preferences-source"
+            class="muted"
+            aria-live="polite"
+          ></p>
+          <p class="muted">
+            <button
+              type="button"
+              id="load-shared-preferences"
+              class="secondary small"
+            >
+              共通の希望条件を読み込む
+            </button>
+            <a href="preferences.html" target="_blank">共通の希望条件を編集</a>
+          </p>
+          <p
+            id="analysis-criteria-notice"
+            class="callout criteria-notice"
+            role="status"
+            hidden
+          ></p>
           <details>
             <summary>比較する条件を確認</summary>
             <p class="muted">

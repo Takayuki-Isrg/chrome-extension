@@ -146,6 +146,68 @@ test('403・停止中・出力上限・不正形式・空条件を成功扱い�
   assert.throws(() => validateAnalysis({ evaluations: 'invalid' }, input));
 });
 
+test('26件中23種類の返答で重複・欠落IDをまとめて診断する', () => {
+  const many = analysisInput(values, Array.from({ length: 26 }, (_, i) => `条件${i + 1}`).join('\n'));
+  const ids = [...Array.from({ length: 20 }, (_, i) => `c${i + 1}`), 'c23', 'c24', 'c25', 'c23', 'c24', 'c25'];
+  assert.throws(
+    () => validateAnalysis({ evaluations: ids.map((criterionId) => ({ ...row, criterionId })) }, many),
+    (error) => {
+      assert.equal(error.name, 'AnalysisValidationError');
+      assert.equal(error.details.stage, 'validateAnalysis');
+      assert.equal(error.details.expectedCount, 26);
+      assert.equal(error.details.receivedCount, 26);
+      assert.deepEqual(error.details.duplicateIds, ['c23', 'c24', 'c25']);
+      assert.deepEqual(error.details.missingIds, ['c21', 'c22', 'c26']);
+      assert.deepEqual(error.details.unknownIds, []);
+      assert.match(error.message, /期待26件／受信26件/);
+      assert.match(error.message, /重複ID：c23, c24, c25/);
+      assert.match(error.message, /欠落ID：c21, c22, c26/);
+      return true;
+    },
+  );
+});
+
+test('件数不一致でも行の不正・未知IDを収集し、本文を診断に含めない', () => {
+  assert.throws(
+    () =>
+      validateAnalysis(
+        {
+          evaluations: [
+            null,
+            { ...row, criterionId: 'unknown', status: 'invalid', reason: '', evidenceIds: ['missing'] },
+          ],
+        },
+        input,
+      ),
+    (error) => {
+      assert.equal(error.details.expectedCount, 1);
+      assert.equal(error.details.receivedCount, 2);
+      assert.deepEqual(error.details.missingIds, ['c1']);
+      assert.deepEqual(error.details.unknownIds, ['unknown']);
+      assert.match(error.message, /evaluations\[0\]/);
+      assert.match(error.message, /\.status/);
+      assert.match(error.message, /\.reason/);
+      assert.match(error.message, /存在しない根拠ID/);
+      assert.ok(!JSON.stringify(error.details).includes(values.description));
+      return true;
+    },
+  );
+  for (const evaluations of [undefined, 'invalid']) {
+    assert.throws(
+      () => validateAnalysis({ evaluations }, input),
+      (error) => {
+        assert.equal(error.details.receivedCount, null);
+        assert.match(error.message, /配列ではありません/);
+        return true;
+      },
+    );
+  }
+  assert.equal(
+    validateAnalysis({ evaluations: [{ ...row, status: '不一致', evidenceIds: [] }] }, input).evaluations[0].status,
+    '要確認',
+  );
+});
+
 test('根拠ID・範囲・入力の同一性を照合し、長い日本語・絵文字を欠落させない', () => {
   const long = analysisInput({ ...values, description: 'あ'.repeat(650) + '😀末尾' });
   const sources = evidenceSources(long).filter((source) => source.field === 'description');
@@ -186,12 +248,13 @@ test('求人票内の不足は要確認、外部照合の未実施は未調査�
     ['要確認', '未調査'],
   );
   assert.equal(output.questions[0].criterionId, 'c1');
-  assert.throws(() =>
-    validateAnalysis(
-      { evaluations: [{ ...row, status: '未調査', evidenceIds: [] }] },
-      analysisInput(values, 'リモート勤務'),
-    ),
-  );
+  // 外部調査でない条件への「未調査」は拒否せず、要確認へ補正して元の判定を残す（詳細は analysis-correction.test.js）。
+  const corrected = validateAnalysis(
+    { evaluations: [{ ...row, status: '未調査', evidenceIds: [] }] },
+    analysisInput(values, 'リモート勤務'),
+  ).evaluations[0];
+  assert.equal(corrected.status, '要確認');
+  assert.equal(corrected.correction.originalStatus, '未調査');
 });
 
 test('採用元未確認の直接表示も求人原文の事実としては扱わない', () => {

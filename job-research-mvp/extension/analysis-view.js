@@ -1,7 +1,14 @@
 import { FIELD_LABELS } from './classify.js';
+import { loadSharedPreferences } from './preferences-store.js';
 import { analysisInput, analysisSignature, listLocalModels, analyzeLocal, OLLAMA_ORIGIN } from './local-llm.js';
 
-import { directInformation, parseCriteria, verifyEvidence } from './analysis-evaluation.js';
+import {
+  criteriaWarnings,
+  directInformation,
+  emptyCriteriaMessage,
+  parseCriteria,
+  verifyEvidence,
+} from './analysis-evaluation.js';
 
 export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdits, setLocked }) {
   const $ = (selector) => document.querySelector(selector);
@@ -11,15 +18,50 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
   let selectionChanged = false;
   const modelSettingKey = 'localLlmModel';
   let preferencesInitialized = false;
+  let preferencesEdited = false;
+  // Read-only here: this screen never writes the shared preferences.
+  const sharedPreferences = loadSharedPreferences(chrome.storage.local);
+  sharedPreferences.catch(() => {});
 
   function message(text) {
     status.textContent = text;
   }
+  function preferencesSource(text) {
+    $('#analysis-preferences-source').textContent = text;
+  }
+  async function applySharedPreferences(loading, { replace = false } = {}) {
+    let text;
+    try {
+      ({ text } = await loading);
+    } catch {
+      preferencesSource('共通の希望条件を読み込めませんでした。この画面で入力して分析できます。');
+      return;
+    }
+    if (running || (!replace && preferencesEdited)) return;
+    if (!text) {
+      preferencesSource('共通の希望条件は未保存です。ツールバーの拡張アイコンから登録できます。');
+      return;
+    }
+    $('#analysis-preferences').value = text;
+    preferencesEdited = false;
+    preferencesSource(
+      '共通の希望条件を読み込みました。ここでの変更はこの画面の分析だけに使い、共通の希望条件は変わりません。',
+    );
+    previewCriteria();
+    render(getRecord());
+  }
   function render(record) {
     if (!record || record.status !== 'ready') return;
     if (!preferencesInitialized) {
-      $('#analysis-preferences').value = record.analysis?.input.preferences || '';
       preferencesInitialized = true;
+      // A job that was already analyzed keeps the conditions of that analysis; the shared ones are only a default.
+      if (record.analysis) {
+        $('#analysis-preferences').value = record.analysis.input?.preferences || '';
+        preferencesSource('この求人で前回分析したときの希望条件です（共通の希望条件は読み込んでいません）。');
+      } else {
+        $('#analysis-preferences').value = '';
+        applySharedPreferences(sharedPreferences);
+      }
       previewCriteria();
     }
     $('#analyze').disabled = running || !$('#analysis-model').value || record.assessment.status !== '求人票';
@@ -72,6 +114,19 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
         const tr = element('tr');
         const condition = element('td', `${row.criterion.id} / ${row.criterion.category}\n${row.criterion.text}`);
         const decision = element('td', `${row.status}\n${row.method}`);
+        // Results saved before corrections were tracked have no `correction` field.
+        if (row.correction) {
+          const details = element('details');
+          details.append(
+            element('summary', `補正前：${row.correction.originalStatus}`),
+            element(
+              'p',
+              `補正理由：${row.correction.reasons.join(' ')}\nLLMの元の理由：${row.correction.originalReason || 'なし'}\nLLMの元の質問：${row.correction.originalQuestion || 'なし'}`,
+              'evidence',
+            ),
+          );
+          decision.append(details);
+        }
         const reason = element('td', row.reason);
         const references = element('td');
         for (const source of row.evidence) {
@@ -130,13 +185,35 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
   }
 
   function previewCriteria() {
+    const text = $('#analysis-preferences').value;
+    const notice = $('#analysis-criteria-notice');
+    notice.hidden = true;
     try {
-      const { criteria } = parseCriteria($('#analysis-preferences').value);
+      const { criteria } = parseCriteria(text);
+      const warnings = criteriaWarnings(criteria);
       $('#analysis-criteria').replaceChildren(
-        ...criteria.map((item) =>
-          element('li', `${item.id} / ${item.category}${item.external ? ' / 外部未調査' : ''}：${item.text}`),
-        ),
+        ...criteria.map((item) => {
+          const li = element(
+            'li',
+            `${item.id} / ${item.category}${item.external ? ' / 外部未調査' : ''}：${item.text}`,
+          );
+          const own = warnings.filter((warning) => warning.criterionId === item.id);
+          if (own.length) {
+            const list = element('ul', '', 'criterion-warnings');
+            list.append(...own.map((warning) => element('li', `注意：${warning.message}`)));
+            li.append(list);
+          }
+          return li;
+        }),
       );
+      if (!criteria.length && text.trim()) {
+        notice.textContent = emptyCriteriaMessage(text);
+        notice.hidden = false;
+      } else if (warnings.length) {
+        const lines = new Set(warnings.map((warning) => warning.criterionId)).size;
+        notice.textContent = `${lines}行に確認事項があります。「比較する条件を確認」で内容を確認し、必要なら入力を修正してください。修正しなくても分析は実行できます。`;
+        notice.hidden = false;
+      }
     } catch (error) {
       $('#analysis-criteria').textContent = error.message;
     }
@@ -198,7 +275,23 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
     }
   });
   $('#analysis-model').addEventListener('change', saveModel);
+  $('#load-shared-preferences').addEventListener('click', async () => {
+    if (running) return;
+    const loading = loadSharedPreferences(chrome.storage.local);
+    let text;
+    try {
+      ({ text } = await loading);
+    } catch {
+      preferencesSource('共通の希望条件を読み込めませんでした。');
+      return;
+    }
+    const current = $('#analysis-preferences').value;
+    if (current && current !== text && !confirm('この画面の希望条件を、共通の希望条件で置き換えます。よろしいですか？'))
+      return;
+    await applySharedPreferences(loading, { replace: true });
+  });
   $('#analysis-preferences').addEventListener('input', () => {
+    preferencesEdited = true;
     previewCriteria();
     render(getRecord());
   });
@@ -226,6 +319,7 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
       $('#load-models').disabled =
       $('#analysis-model').disabled =
       $('#analysis-preferences').disabled =
+      $('#load-shared-preferences').disabled =
         true;
     const startedAt = performance.now();
     let generating = false;
@@ -252,11 +346,16 @@ export function initializeAnalysis({ id, key, getRecord, onRecord, hasUnsavedEdi
       message(`分析結果を保存しました（${analysis.elapsedSeconds}秒）。解釈と根拠を確認してください。`);
     } catch (error) {
       message(`分析できませんでした。${error.message} 抽出・修正結果は保持されています。`);
+      console.error('求人分析に失敗しました。', error.details || error);
     } finally {
       clearInterval(progressTimer);
       running = false;
       setLocked(false);
-      $('#load-models').disabled = $('#analysis-model').disabled = $('#analysis-preferences').disabled = false;
+      $('#load-models').disabled =
+        $('#analysis-model').disabled =
+        $('#analysis-preferences').disabled =
+        $('#load-shared-preferences').disabled =
+          false;
       render(getRecord());
     }
   });
