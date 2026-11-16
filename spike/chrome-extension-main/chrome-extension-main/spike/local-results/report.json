@@ -1,0 +1,106 @@
+{
+  "input": "capture-2026-11-04T06-10-28-250Z.txt",
+  "source_url": "https://www.google.com/search?q=%E5%9B%BD%E7%AB%8B%E5%9B%BD%E4%BC%9A%E5%9B%B3%E6%9B%B8%E9%A4%A8+%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85&sca_esv=e49c4bd7c503d011&hl=ja&sxsrf=AKL5yDiq4WMAARL2Aw-sgxTAxIeCfvXlwQ%3A1793772532438&source=hp&ei=9MvqaofjGKri2roP74KjiAY&iflsig=AHSINFcAAAAAauraBNlqfSPVy-BARLrXAbZFnLOs1sTR&ved=2ahUKEwiHrei00-2XAxUqsVYBHW_BCGEQ4dUDegQIABAf&oq=%E5%9B%BD%E7%AB%8B%E5%9B%BD%E4%BC%9A%E5%9B%B3%E6%9B%B8%E9%A4%A8+%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85&gs_lp=Egdnd3Mtd2l6IiLlm73nq4vlm73kvJrlm7Pmm7jppKgg5Yip55So5qGI5YaFMgUQABiABDIIEAAYgAQYogQyCBAAGIAEGKIESJ2gAlAAWABwAHgAkAEAmAFRoAFRqgEBMbgBDMgBAPgBAvgBAZgCAaACVJgDAJIHATGgB84BsgcBMbgHVMIHAzAuMcgHAoAIAQ&sclient=gws-wiz&sei=HszqaoedPJik2roP3N7t6AQ",
+  "html_parts": 2,
+  "mime_defects": [],
+  "text_characters": 5959,
+  "japanese_characters": 3865,
+  "candidate_count": 8,
+  "missing_snippets": 1,
+  "unresolved_urls": 8,
+  "risk_indicator_counts": {
+    "email_like": 64,
+    "cookie_header_like": 0,
+    "authorization_header_like": 0,
+    "token_marker": 0,
+    "password_input": 0,
+    "replacement_character": 0
+  },
+  "limitations": [
+    "Heuristic candidates are not verified organic results.",
+    "No article bodies, identity verification or reliable publication dates.",
+    "Risk indicators do not certify absence of personal data or secrets."
+  ],
+  "results": [
+    {
+      "title": "東京本館利用の流れ",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESWwHrOzAV3QO5DtdMxTSnWZcZoGIIgefHDsGU20rq2uagH1jqn-APgauHrBhe6UKqHMK6vb7K6aMzTUvRFqYXuwwMsHiRtX3DDMHqWR-vpqRh_4JE4Bs2SFq-f20",
+      "observed_link_url": "https://www.google.com/goto?url=CAESWwHrOzAV3QO5DtdMxTSnWZcZoGIIgefHDsGU20rq2uagH1jqn-APgauHrBhe6UKqHMK6vb7K6aMzTUvRFqYXuwwMsHiRtX3DDMHqWR-vpqRh_4JE4Bs2SFq-f20",
+      "url_status": "unresolved_google_link",
+      "snippet": "本館・新館インフォメーションでは、図書館の利用方法などをご案内します 。 各専門室では、お探しのテーマに応じて、調べ方のご相談（レファレンス）をお受けします。 どの ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "来館される方へのお願い",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESXAHrOzAV5ek4DH02TUXV7hxYzbGk7NQ2zVmFeHiAXluvzu3zplINQaFjlt1wroxdZn8W0H_mynl43sglVz2EDeQCaO-hLngHc53TLSt64qljgrPn88sWaIhi__eG",
+      "observed_link_url": "https://www.google.com/goto?url=CAESXAHrOzAV5ek4DH02TUXV7hxYzbGk7NQ2zVmFeHiAXluvzu3zplINQaFjlt1wroxdZn8W0H_mynl43sglVz2EDeQCaO-hLngHc53TLSt64qljgrPn88sWaIhi__eG",
+      "url_status": "unresolved_google_link",
+      "snippet": "国立国会図書館 の所蔵資料の大半は書庫内にあり、 利用 者の方は書庫に立ち入ることができません。したがって、ご自身で直接本棚から資料を取って読むことはできません。館内 ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "国立国会図書館東京本館利用案内1.「入館編」",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESZgHrOzAV3b0xN2Y-aLKXxiGMf6ufJma_XIRTR7q47WX800BjYrW_zQ8oyuQofS-v0ljcKiNHEo2SUde6eyJU5peVUU6U6DvjyQP46RwSVnzUKNlJxQxPu4QghHc-GUDr5dFIG92qHA",
+      "observed_link_url": "https://www.google.com/goto?url=CAESZgHrOzAV3b0xN2Y-aLKXxiGMf6ufJma_XIRTR7q47WX800BjYrW_zQ8oyuQofS-v0ljcKiNHEo2SUde6eyJU5peVUU6U6DvjyQP46RwSVnzUKNlJxQxPu4QghHc-GUDr5dFIG92qHA",
+      "url_status": "unresolved_google_link",
+      "snippet": null,
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "パンフレット一覧",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESaQHrOzAV_bQGT5xEm0G2zmZJa1yvLhfz07Nhu_3qamJC5blMMPCBHMXvHyB4VKIfEEWWvR5vPwvx0rfOArAxdoe6mtXoUxwPwzCIi_P7iTQp8IAiRjv5xa51sIiXm4j86Q8NtEOnVmPiQA",
+      "observed_link_url": "https://www.google.com/goto?url=CAESaQHrOzAV_bQGT5xEm0G2zmZJa1yvLhfz07Nhu_3qamJC5blMMPCBHMXvHyB4VKIfEEWWvR5vPwvx0rfOArAxdoe6mtXoUxwPwzCIi_P7iTQp8IAiRjv5xa51sIiXm4j86Q8NtEOnVmPiQA",
+      "url_status": "unresolved_google_link",
+      "snippet": "図書館の利用方法の案内 · 国立国会図書館 東京本館 利用案内 （PDF: 272KB）（A4、4ページ） · 国立国会図書館 関西館 利用案内 （PDF: 2.68MB）（A4、4ページ） · 国際子ども ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "【国立国会図書館に行こう！】はじめての「 ...",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESaAHrOzAVKfM9XHbC469o4FxuECJD7J3Pz2Fnt0c36azDJO-HGS-U8jr1uJc7WLIicw54hEvS73fGreYn4E_97CQ3q9NRTO51MW-YrwDBDedxQExdeJY4nn5Yqcz-u1DJfPS4Pns8_B5S",
+      "observed_link_url": "https://www.google.com/goto?url=CAESaAHrOzAVKfM9XHbC469o4FxuECJD7J3Pz2Fnt0c36azDJO-HGS-U8jr1uJc7WLIicw54hEvS73fGreYn4E_97CQ3q9NRTO51MW-YrwDBDedxQExdeJY4nn5Yqcz-u1DJfPS4Pns8_B5S",
+      "url_status": "unresolved_google_link",
+      "snippet": "2023/03/13 — 国立国会図書館 の 利用 方法 · 本登録⇒登録に本人確認の書類が必須 · 来館 利用 · 遠隔複写 · 記事掲載箇所調査 · 個人向けデジタル化資料送信.",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "【完全マスター】本好きさんの聖地 国会図書館利用方法徹底 ...",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESZAHrOzAVudvgvnmcxsIPoN1NVaZhHV3Vjc5j4o3ECwfZh1mQGCwM70SDoNSbrxDvgUWK_liAYS-LrP18WEJXMDr7hJTp4lnY3Obo9ZJFVlJkLDPi5d6V4uG08vBQOomaCfk1c6c",
+      "observed_link_url": "https://www.google.com/goto?url=CAESZAHrOzAVudvgvnmcxsIPoN1NVaZhHV3Vjc5j4o3ECwfZh1mQGCwM70SDoNSbrxDvgUWK_liAYS-LrP18WEJXMDr7hJTp4lnY3Obo9ZJFVlJkLDPi5d6V4uG08vBQOomaCfk1c6c",
+      "url_status": "unresolved_google_link",
+      "snippet": "18歳以上は誰でも 利用 ・カードの登録ができます。 18歳未満でも内容に応じて 利用 が可能。 また、上野に 国立国会図書館 国際子ども図書館もあり、こちらは ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "サービス概要",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESVAHrOzAVnJE4yIEc7u7OaEB3IuuZC5bVFMRwSgZoZ8BLa8xRHEBOrsRGh7IfVDtef1vprp9fFMd6JJrP1ezFOXg-i_JwChnTaZtKEKramul-vdxxXQ",
+      "observed_link_url": "https://www.google.com/goto?url=CAESVAHrOzAVnJE4yIEc7u7OaEB3IuuZC5bVFMRwSgZoZ8BLa8xRHEBOrsRGh7IfVDtef1vprp9fFMd6JJrP1ezFOXg-i_JwChnTaZtKEKramul-vdxxXQ",
+      "url_status": "unresolved_google_link",
+      "snippet": "オンラインで 利用 できるサービス ... オンラインで提供している資料のデジタル画像やデータベースは、どなたでもご 利用 いただけます。 ... 国立国会図書館 と全国の図書館等の ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "国立国会図書館の利用者登録について",
+      "url": null,
+      "raw_href": "https://www.google.com/goto?url=CAESXQHrOzAVa9DrYj2hHdIVFkfRZO6OBd6dhFl0mcDaSxxNm51s2mGPB3LL_RpGeVUPDg9ocHady5QWCEr2-Fr5Sx92a-S_zdPUQ1BVzmBAF51VeVO37n62n03aF9sLLA",
+      "observed_link_url": "https://www.google.com/goto?url=CAESXQHrOzAVa9DrYj2hHdIVFkfRZO6OBd6dhFl0mcDaSxxNm51s2mGPB3LL_RpGeVUPDg9ocHady5QWCEr2-Fr5Sx92a-S_zdPUQ1BVzmBAF51VeVO37n62n03aF9sLLA",
+      "url_status": "unresolved_google_link",
+      "snippet": "国立国会図書館 の 利用 者登録（個人）は、 利用 できるサービスの範囲によって次の2種類に分かれています。 登録方法については、ご希望の登録種別に該当するページをご参照 ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    }
+  ]
+}

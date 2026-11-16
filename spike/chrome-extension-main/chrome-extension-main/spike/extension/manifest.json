@@ -1,0 +1,14 @@
+{
+	"manifest_version": 3,
+	"name": "MHTML single-page spike",
+	"version": "0.0.1",
+	"minimum_chrome_version": "116",
+	"permissions": [
+		"activeTab",
+		"pageCapture",
+		"downloads"
+	],
+	"action": {
+		"default_popup": "popup.html"
+	}
+}

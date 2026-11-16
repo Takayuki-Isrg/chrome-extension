@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><title>既存MHTMLの追加検証</title>
+<body style="font-family:sans-serif;max-width:780px;margin:32px auto;line-height:1.7">
+<h1>既存MHTMLの追加検証</h1>
+<p>検索・ページ取得は行いません。選択したファイルを実行せず、そのまま修正後の保存処理で書き出します。元ファイルは変更しません。</p>
+<label>保存済みMHTML（.txtでも可） <input id="archive" type="file" accept=".mhtml,.mht,.txt"></label>
+<p><button id="export">MHTMLとして再保存</button></p>
+<pre id="status" style="white-space:pre-wrap" role="status"></pre>
+<h2>実URLの手動記録（1件）</h2>
+<p>保存MHTMLの「東京本館利用の流れ」を手動で開き、移動先のアドレスバーのURLをコピーしてください。制限が出たら停止します。保存MHTMLに戻り、以下へ貼り付けます。</p>
+<label>検索結果のタイトル <input id="title" value="東京本館利用の流れ" style="width:95%"></label>
+<p><label>開いて確認したページの実URL <input id="url" type="url" placeholder="https://…" style="width:95%"></label></p>
+<label><input id="confirmed" type="checkbox">開いたページの見出し・サイトが検索結果に対応していることを確認した</label>
+<p><button id="record">手動確認記録をJSON保存</button></p>
+<pre id="record-status" style="white-space:pre-wrap" role="status"></pre>
+<p>記録するのはURL確認時刻です。記事公開日時・MHTML取得日時とは区別します。URLに個人情報が含まれないか確認してください。</p>
+<script src="download.js"></script><script src="offline.js"></script></body></html>

@@ -1,0 +1,15 @@
+{
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "options": {
+        "printWidth": 120,
+        "objectWrap": "collapse"
+      },
+      "files": "**/*.js"
+    }
+  ]
+}

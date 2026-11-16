@@ -1,0 +1,92 @@
+{
+  "input": "capture.mhtml",
+  "network_requests": 0,
+  "mime_content_types": {
+    "text/html": 2,
+    "image/svg+xml": 3,
+    "text/css": 67,
+    "image/webp": 1,
+    "image/jpeg": 1,
+    "image/png": 4
+  },
+  "html_script_elements": 0,
+  "results": [
+    {
+      "title": "東京本館利用の流れ",
+      "displayed_breadcrumbs": [
+        "https://www.ndl.go.jp › 東京本館"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "来館される方へのお願い",
+      "displayed_breadcrumbs": [
+        "https://www.ndl.go.jp › 東京本館"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "国立国会図書館東京本館利用案内1.「入館編」",
+      "displayed_breadcrumbs": [],
+      "explicit_url_candidates": [
+        {
+          "attribute": "data-curl",
+          "url": "https://www.youtube.com/watch?v=zX5TT-ntIWE"
+        },
+        {
+          "attribute": "data-surl",
+          "url": "https://www.youtube.com/watch?v=zX5TT-ntIWE"
+        }
+      ],
+      "candidate_status": "unverified_block_attribute",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "パンフレット一覧",
+      "displayed_breadcrumbs": [
+        "https://www.ndl.go.jp › 国立国会図書館について"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "【国立国会図書館に行こう！】はじめての「 ...",
+      "displayed_breadcrumbs": [
+        "https://gakumado.mynavi.jp › 大学生活 › 学生トレンド"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "【完全マスター】本好きさんの聖地 国会図書館利用方法徹底 ...",
+      "displayed_breadcrumbs": [],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "サービス概要",
+      "displayed_breadcrumbs": [
+        "https://www.ndl.go.jp › use"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    },
+    {
+      "title": "国立国会図書館の利用者登録について",
+      "displayed_breadcrumbs": [
+        "https://www.ndl.go.jp › registration"
+      ],
+      "explicit_url_candidates": [],
+      "candidate_status": "no_explicit_target_found",
+      "note": "Breadcrumbs are not complete article URLs; block attributes are candidates, not verified destinations."
+    }
+  ]
+}

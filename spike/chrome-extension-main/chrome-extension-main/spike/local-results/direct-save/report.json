@@ -1,0 +1,96 @@
+{
+  "input": "capture-2026-11-04T12-20-43-784Z.mhtml",
+  "source_url": "https://www.google.com/search?q=%E5%9B%BD%E7%AB%8B%E5%9B%BD%E4%BC%9A%E5%9B%B3%E6%9B%B8%E9%A4%A8+%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85&sca_esv=f0f7d3a8a529a5b8&sxsrf=AKL5yDhXrNwLBIDt-BXPco5VcAhkq5-ZCQ%3A1793794788343&source=hp&ei=5CLrasHqEZbn2roP2vnGuQM&iflsig=AHSINFcAAAAAausw9PTVavV3YC5LGZqsQhiRdw9oIpN8&ved=2ahUKEwjB7J-ppu6XAxWWs1YBHdq8MTcQ4dUDegQIABAr&uact=5&oq=%E5%9B%BD%E7%AB%8B%E5%9B%BD%E4%BC%9A%E5%9B%B3%E6%9B%B8%E9%A4%A8+%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85&gs_lp=Egdnd3Mtd2l6IiLlm73nq4vlm73kvJrlm7Pmm7jppKgg5Yip55So5qGI5YaFMgUQABiABDIIEAAYgAQYogQyBRAAGO8FSPpEUABYAHAAeACQAQCYAW-gAW-qAQMwLjG4AQPIAQD4AQL4AQGYAgGgAnOYAwCSBwMwLjGgB8oBsgcDMC4xuAdzwgcDMC4xyAcCgAgB&sclient=gws-wiz",
+  "html_parts": 4,
+  "mime_defects": [],
+  "text_characters": 6955,
+  "japanese_characters": 4402,
+  "candidate_count": 7,
+  "missing_snippets": 0,
+  "unresolved_urls": 0,
+  "risk_indicator_counts": {
+    "email_like": 114,
+    "cookie_header_like": 0,
+    "authorization_header_like": 0,
+    "token_marker": 0,
+    "password_input": 0,
+    "replacement_character": 0
+  },
+  "limitations": [
+    "Heuristic candidates are not verified organic results.",
+    "No article bodies, identity verification or reliable publication dates.",
+    "Risk indicators do not certify absence of personal data or secrets."
+  ],
+  "results": [
+    {
+      "title": "東京本館利用の流れ",
+      "url": "https://www.ndl.go.jp/tokyo/flow",
+      "raw_href": "https://www.ndl.go.jp/tokyo/flow",
+      "observed_link_url": "https://www.ndl.go.jp/tokyo/flow",
+      "url_status": "external_url_present",
+      "snippet": "本館・新館インフォメーションでは、図書館の利用方法などをご案内します 。 各専門室では、お探しのテーマに応じて、調べ方のご相談（レファレンス）をお受けします。 どの ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "来館される方へのお願い",
+      "url": "https://www.ndl.go.jp/tokyo/notes",
+      "raw_href": "https://www.ndl.go.jp/tokyo/notes",
+      "observed_link_url": "https://www.ndl.go.jp/tokyo/notes",
+      "url_status": "external_url_present",
+      "snippet": "国立国会図書館 の所蔵資料の大半は書庫内にあり、 利用 者の方は書庫に立ち入ることができません。したがって、ご自身で直接本棚から資料を取って読むことはできません。館内 ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "【完全マスター】本好きさんの聖地 国会図書館利用方法徹底 ...",
+      "url": "https://note.com/okaeri_3/n/n026201cbe267",
+      "raw_href": "https://note.com/okaeri_3/n/n026201cbe267",
+      "observed_link_url": "https://note.com/okaeri_3/n/n026201cbe267",
+      "url_status": "external_url_present",
+      "snippet": "18歳以上は誰でも 利用 ・カードの登録ができます。 18歳未満でも内容に応じて 利用 が可能。 また、上野に 国立国会図書館 国際子ども図書館もあり、こちらは ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "パンフレット一覧",
+      "url": "https://www.ndl.go.jp/aboutus/outline/pamphlet",
+      "raw_href": "https://www.ndl.go.jp/aboutus/outline/pamphlet",
+      "observed_link_url": "https://www.ndl.go.jp/aboutus/outline/pamphlet",
+      "url_status": "external_url_present",
+      "snippet": "図書館の利用方法の案内 · 国立国会図書館 東京本館 利用案内 （PDF: 272KB）（A4、4ページ） · 国立国会図書館 関西館 利用案内 （PDF: 2.68MB）（A4、4ページ） · 国際子ども ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "【国立国会図書館に行こう！】はじめての「 ...",
+      "url": "https://gakumado.mynavi.jp/gmd/articles/61978",
+      "raw_href": "https://gakumado.mynavi.jp/gmd/articles/61978",
+      "observed_link_url": "https://gakumado.mynavi.jp/gmd/articles/61978",
+      "url_status": "external_url_present",
+      "snippet": "2023/03/13 — 国立国会図書館 の 利用 方法 · 本登録⇒登録に本人確認の書類が必須 · 来館 利用 · 遠隔複写 · 記事掲載箇所調査 · 個人向けデジタル化資料送信.",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "サービス概要",
+      "url": "https://www.ndl.go.jp/use",
+      "raw_href": "https://www.ndl.go.jp/use",
+      "observed_link_url": "https://www.ndl.go.jp/use",
+      "url_status": "external_url_present",
+      "snippet": "オンラインで 利用 できるサービス ... オンラインで提供している資料のデジタル画像やデータベースは、どなたでもご 利用 いただけます。 ... 国立国会図書館 と全国の図書館等の ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    },
+    {
+      "title": "【国会図書館オンラインの利用方法】利用者登録・使い方",
+      "url": "https://www.agaroot.jp/column/ndl-digital-collections/",
+      "raw_href": "https://www.agaroot.jp/column/ndl-digital-collections/",
+      "observed_link_url": "https://www.agaroot.jp/column/ndl-digital-collections/",
+      "url_status": "external_url_present",
+      "snippet": "2026/08/20 — 国立国会図書館 利用 者登録（本登録）の方法 · インターネット（ 国立国会図書館 サーチ）から申請 · 国立国会図書館 に直接来館して手続き · 必要書類を郵送し ...",
+      "classification": "unverified_heading_link_candidate",
+      "publication_date": null
+    }
+  ]
+}
